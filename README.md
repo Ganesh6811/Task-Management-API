@@ -103,46 +103,50 @@ A robust and efficient **Task Management API** built using Node.js, Express.js, 
    npm start
 
 
-###API Documentation
-Authentication Endpoints
-POST /auth/register: Register a new user
+## API Documentation
+### Authentication Endpoints
 
-Request body: { "username": "user", "password": "password" }
-Response: { "message": "username details are saved" }
-POST /auth/login: Log in and obtain a JWT token
 
-Request body: { "username": "user", "password": "password" }
-Response: { "token": "your-jwt-token" }
-Task Management Endpoints
-GET /tasks: Retrieve all tasks
+--POST /auth/register: Register a new user
+--Request body: { "username": "user", "password": "password" }
+--Response: { "message": "username details are saved" }
 
+
+--POST /auth/login: Log in and obtain a JWT token
+--Request body: { "username": "user", "password": "password" }
+--Response: { "token": "your-jwt-token" }
+
+### Task Management Endpoints
+--GET /tasks: Retrieve all tasks
 Response: List of all tasks
-GET /tasks/:id: Get task by ID
 
-Response: Task details
-POST /tasks: Create a new task
+--GET /tasks/:id: Get task by ID
+--Response: Task details
 
-Request body: { "title": "Task Title", "description": "Task Description", "status": "Pending", "priority": "High", "due_date": "2024-12-31" }
-Response: { "message": "Task created successfully" }
-PUT /tasks/:id: Update task by ID
+--POST /tasks: Create a new task
+--Request body: { "title": "Task Title", "description": "Task Description", "status": "Pending", "priority": "High", "due_date": "2024-12-31" }
+--Response: { "message": "Task created successfully" }
 
-Request body: { "title": "Updated Title", "description": "Updated Description", "status": "In Progress", "priority": "Medium", "due_date": "2024-12-15" }
-Response: { "message": "Task updated successfully" }
-DELETE /delete/tasks/:id: Delete task by ID
+--PUT /tasks/:id: Update task by ID
+--Request body: { "title": "Updated Title", "description": "Updated Description", "status": "In Progress", "priority": "Medium", "due_date": "2024-12-15" }
+--Response: { "message": "Task updated successfully" }
 
-Response: { "message": "Task deleted successfully" }
-GET /status/priority: Filter tasks by status and priority
+--DELETE /delete/tasks/:id: Delete task by ID
+--Response: { "message": "Task deleted successfully" }
 
-Request body: { "status": "Pending", "priority": "High" }
-Response: List of filtered tasks
-GET /sort: Sort tasks by priority or due date
 
-Request body: { "col": "priority", "typ": "asc" }
-Response: Sorted task list
-GET /search: Search tasks by title or description
+--GET /status/priority: Filter tasks by status and priority
+--Request body: { "status": "Pending", "priority": "High" }
+--Response: List of filtered tasks
 
-Query parameter: query=search-term
-Response: List of tasks matching the search query
+
+--GET /sort: Sort tasks by priority or due date
+--Request body: { "col": "priority", "typ": "asc" }
+--Response: Sorted task list
+
+--GET /search: Search tasks by title or description
+--Query parameter: query=search-term
+--Response: List of tasks matching the search query
 
 
 
