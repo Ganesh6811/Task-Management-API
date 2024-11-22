@@ -10,8 +10,7 @@ A robust and efficient **Task Management API** built using Node.js, Express.js, 
 3. [System Requirements](#system-requirements)
 4. [Setup and Installation](#setup-and-installation)
 5. [API Documentation](#api-documentation)
-6. [Improvements and Assumptions](#improvements-and-assumptions)
-7. [Evaluation Criteria](#evaluation-criteria)
+
 ---
 
 ## Features
@@ -73,5 +72,78 @@ A robust and efficient **Task Management API** built using Node.js, Express.js, 
    ```bash
    git clone https://github.com/Ganesh6811/Task-Management-API.git
    cd task-management-system
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+
+
+3. **Set up the Database:**
+  - Create the necessary tables in the TaskManagement database. Execute the following SQL commands in your PostgreSQL client:
+    ```bash
+    
+    CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL
+    );
+    
+    CREATE TABLE tasks (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    status VARCHAR(20) NOT NULL,
+    priority VARCHAR(10),
+    due_date DATE
+    );
+
+4. **Start the Server**
+   -Run the following command to start the server:
+   ```bash
+   npm start
+
+
+###API Documentation
+Authentication Endpoints
+POST /auth/register: Register a new user
+
+Request body: { "username": "user", "password": "password" }
+Response: { "message": "username details are saved" }
+POST /auth/login: Log in and obtain a JWT token
+
+Request body: { "username": "user", "password": "password" }
+Response: { "token": "your-jwt-token" }
+Task Management Endpoints
+GET /tasks: Retrieve all tasks
+
+Response: List of all tasks
+GET /tasks/:id: Get task by ID
+
+Response: Task details
+POST /tasks: Create a new task
+
+Request body: { "title": "Task Title", "description": "Task Description", "status": "Pending", "priority": "High", "due_date": "2024-12-31" }
+Response: { "message": "Task created successfully" }
+PUT /tasks/:id: Update task by ID
+
+Request body: { "title": "Updated Title", "description": "Updated Description", "status": "In Progress", "priority": "Medium", "due_date": "2024-12-15" }
+Response: { "message": "Task updated successfully" }
+DELETE /delete/tasks/:id: Delete task by ID
+
+Response: { "message": "Task deleted successfully" }
+GET /status/priority: Filter tasks by status and priority
+
+Request body: { "status": "Pending", "priority": "High" }
+Response: List of filtered tasks
+GET /sort: Sort tasks by priority or due date
+
+Request body: { "col": "priority", "typ": "asc" }
+Response: Sorted task list
+GET /search: Search tasks by title or description
+
+Query parameter: query=search-term
+Response: List of tasks matching the search query
+
+
 
  
