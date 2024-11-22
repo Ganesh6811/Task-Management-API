@@ -106,45 +106,43 @@ A robust and efficient **Task Management API** built using Node.js, Express.js, 
 ## API Documentation
    ### Authentication Endpoints 
 
-
-- POST /auth/register: Register a new user
+1. **POST /auth/register: Register a new user**
 - Request body: { "username": "user", "password": "password" }
 - Response: { "message": "username details are saved" }
 
 
-- POST /auth/login: Log in and obtain a JWT token
+2. **POST /auth/login: Log in and obtain a JWT token**
 - Request body: { "username": "user", "password": "password" }
 - Response: { "token": "your-jwt-token" }
 
 ### Task Management Endpoints
-- GET /tasks: Retrieve all tasks
+1. **GET /tasks: Retrieve all tasksn**
 - Response: List of all tasks
 
-- GET /tasks/:id: Get task by ID
+  
+2. **GET /tasks/:id: Get task by ID**
 - Response: Task details
 
-- POST /tasks: Create a new task
+3. **POST /tasks: Create a new task**
 - Request body: { "title": "Task Title", "description": "Task Description", "status": "Pending", "priority": "High", "due_date": "2024-12-31" }
 - Response: { "message": "Task created successfully" }
 
-- PUT /tasks/:id: Update task by ID
+4. **PUT /tasks/:id: Update task by ID**
 - Request body: { "title": "Updated Title", "description": "Updated Description", "status": "In Progress", "priority": "Medium", "due_date": "2024-12-15" }
 - Response: { "message": "Task updated successfully" }
 
-- DELETE /delete/tasks/:id: Delete task by ID
+5. **DELETE /delete/tasks/:id: Delete task by ID**
 - Response: { "message": "Task deleted successfully" }
 
-
-- GET /status/priority: Filter tasks by status and priority
+6. **GET /status/priority: Filter tasks by status and priority**
 - Request body: { "status": "Pending", "priority": "High" }
 - Response: List of filtered tasks
 
-
-- GET /sort: Sort tasks by priority or due date
+7. **GET /sort: Sort tasks by priority or due date**
 - Request body: { "col": "priority", "typ": "asc" }
 - Response: Sorted task list
-
-- GET /search: Search tasks by title or description
+  
+8. **GET /search: Search tasks by title or description**
 - Query parameter: query=search-term
 - Response: List of tasks matching the search query
 
